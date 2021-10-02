@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import CurrencyApi from '../../api/currencyApi/provider';
-import { ICurrency } from '../../common/entities/currencyConstructor';
+import { ICurrencyData } from '../../common/types/currencyTypes';
 
 const App = () => {
   const [currencyData, setCurrencyData] = useState([]);
@@ -14,29 +14,18 @@ const App = () => {
   let listOfCurrencies: Array<any> = [];
 
   if (currencyData) {
-    listOfCurrencies = currencyData.map((item: ICurrency) => (
-      <div key={item.sapId} className='item-currency'>
-        <span>{item.usdIn}</span>
-        <span>{item.usdOut}</span>
-        <span>{item.eurIn}</span>
-        <span>{item.eurOut}</span>
-        <span>{item.street}</span>
-        <span>{item.city}</span>
+    listOfCurrencies = currencyData.map((item: ICurrencyData) => (
+      <div key={item.сountry} className='item-currency'>
+        <span>{item.сountry}</span>
+        <span>{item.totalConfirmed}</span>
       </div>
     ));
   }
 
   return (
     <>
-      <nav>
-        <ul>
-          <li>Список подразделений</li>
-          <li>Подразделения на карте</li>
-        </ul>
-      </nav>
-      <div className='App-main'>
-        {listOfCurrencies}
-      </div>
+      <div>Диплом коронавирусный</div>
+      {listOfCurrencies}
     </>
   );
 };

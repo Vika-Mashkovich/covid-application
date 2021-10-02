@@ -9,9 +9,9 @@ class CurrencyApi {
   getCurrency() {
     return fetch(this.url)
       .then((response) => response.json())
-      .then((responseData) => converter(responseData))
+      .then((responseData) => converter(responseData.Countries))
       .catch((error) => console.log(error));
   }
 }
 
-export default new CurrencyApi('https://belarusbank.by/api/kursExchange');
+export default new CurrencyApi('https://api.covid19api.com/summary');
