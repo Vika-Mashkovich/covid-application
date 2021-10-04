@@ -1,22 +1,22 @@
-import { CurrencyAction, CurrencyActionTypes, ICurrencyState } from '../../common/types/currencyTypes';
+import { StatisticsAction, StatisticsActionTypes, ICountryStatisticsState } from '../../common/types/statisticsTypes';
 
-const initialState: ICurrencyState = {
-  currencies: {},
+const initialState: ICountryStatisticsState = {
+  сountries: {},
   page: 1,
   limit: 10,
   loading: false,
   error: null,
 };
 
-export const currencyReducer = (state = initialState, action: CurrencyAction): ICurrencyState => {
+export const currencyReducer = (state = initialState, action: StatisticsAction): ICountryStatisticsState => {
   switch (action.type) {
-    case CurrencyActionTypes.FETCH_CURRENCIES:
-      return { ...state, currencies: { ...action.payload }, loading: true };
-    case CurrencyActionTypes.FETCH_CURRENCIES_SUCCESS:
-      return { ...state, loading: false, currencies: action.payload };
-    case CurrencyActionTypes.FETCH_CURRENCIES_ERROR:
+    case StatisticsActionTypes.FETCH_STATISTICS:
+      return { ...state, сountries: { ...action.payload }, loading: true };
+    case StatisticsActionTypes.FETCH_STATISTICS_SUCCESS:
+      return { ...state, loading: false, сountries: action.payload };
+    case StatisticsActionTypes.FETCH_STATISTICS_ERROR:
       return { ...state, loading: false, error: action.payload };
-    case CurrencyActionTypes.SET_TABLE_PAGE:
+    case StatisticsActionTypes.SET_LIST_PAGE:
       return { ...state, page: action.payload };
     default:
       return state;

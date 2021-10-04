@@ -1,33 +1,26 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import CurrencyApi from '../../api/currencyApi/provider';
-import { ICurrencyData } from '../../common/types/currencyTypes';
+import React, { ReactElement } from 'react';
+import './App.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import HomePage from '../../pages/HomePage/HomePage';
+import PreventionPage from '../../pages/PreventionPage/PreventionPage';
+import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
+import SymptomsPage from '../../pages/SymptomsPage/SymptomsPage';
+import NoPage from '../../pages/NoPage/NoPage';
 
-const App = () => {
-  const [currencyData, setCurrencyData] = useState([]);
-
-  useEffect(() => {
-    CurrencyApi.getCurrency()
-      .then(setCurrencyData);
-  }, []);
-
-  let listOfCurrencies: Array<any> = [];
-
-  if (currencyData) {
-    listOfCurrencies = currencyData.map((item: ICurrencyData) => (
-      <div key={item.сountry} className='item-currency'>
-        <span>{item.сountry}</span>
-        <span>{item.totalConfirmed}</span>
-      </div>
-    ));
-  }
-
-  return (
-    <>
-      <div>Диплом коронавирусный</div>
-      {listOfCurrencies}
-    </>
-  );
-};
+const App :React.FC = ():ReactElement => (
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route component={HomePage} path='/home' />
+      <Route component={StatisticsPage} path='/statistics' />
+      <Route component={PreventionPage} path='/prevention' />
+      <Route component={SymptomsPage} path='/symptoms' />
+      <Route component={NoPage} path='*' />
+    </Switch>
+    <Footer />
+  </BrowserRouter>
+);
 
 export default App;
