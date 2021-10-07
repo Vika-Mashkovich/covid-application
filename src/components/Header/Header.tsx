@@ -10,20 +10,20 @@ const Header:React.FC = ():ReactElement => {
     <header className='wrapper-header'>
       <div className='container'>
         <div className='logo-block'>
-          <Icon type='logo' className='logo' onClick={async () => history.push('/home')} />
+          <Icon type='logo' className='logo' onClick={async () => history.push('/')} />
           <span
             role='link'
             tabIndex={0}
             className='logo-text'
-            onClick={async () => history.push('/home')}
-            onKeyPress={async () => history.push('/home')}
+            onClick={async () => history.push('/')}
+            onKeyPress={async () => history.push('/')}
           >
             COVID-19
           </span>
         </div>
         <nav className='navigation'>
           <ul className='menu'>
-            <li className='menu-item'><NavLink to='/home'>HOME</NavLink></li>
+            <li className='menu-item'><NavLink exact to='/'>HOME</NavLink></li>
             <li className='menu-item'><NavLink to='/statistics'>STATISTICS</NavLink></li>
             <li className='menu-item'><NavLink to='/prevention'>PREVENTION</NavLink></li>
             <li className='menu-item'><NavLink to='/symptoms'>SYMPTOMS</NavLink></li>

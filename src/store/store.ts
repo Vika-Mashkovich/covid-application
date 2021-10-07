@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { currencyReducer } from './reducers/currencyReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { countriesReducer } from './reducers/countriesReducer';
 
-export const store = createStore(currencyReducer, applyMiddleware(thunk));
+export const store = createStore(countriesReducer, composeWithDevTools(applyMiddleware(thunk)));

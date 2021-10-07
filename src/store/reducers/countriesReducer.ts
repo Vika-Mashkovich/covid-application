@@ -1,19 +1,19 @@
 import { StatisticsAction, StatisticsActionTypes, ICountryStatisticsState } from '../../common/types/statisticsTypes';
 
 const initialState: ICountryStatisticsState = {
-  сountries: {},
+  сountries: [],
   page: 1,
-  limit: 10,
+  limit: 20,
   loading: false,
   error: null,
 };
 
-export const currencyReducer = (state = initialState, action: StatisticsAction): ICountryStatisticsState => {
+export const countriesReducer = (state = initialState, action: StatisticsAction): ICountryStatisticsState => {
   switch (action.type) {
     case StatisticsActionTypes.FETCH_STATISTICS:
-      return { ...state, сountries: { ...action.payload }, loading: true };
+      return { ...state, loading: true };
     case StatisticsActionTypes.FETCH_STATISTICS_SUCCESS:
-      return { ...state, loading: false, сountries: action.payload };
+      return { ...state, сountries: action.payload, loading: false };
     case StatisticsActionTypes.FETCH_STATISTICS_ERROR:
       return { ...state, loading: false, error: action.payload };
     case StatisticsActionTypes.SET_LIST_PAGE:

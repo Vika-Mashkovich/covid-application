@@ -13,7 +13,7 @@ const App :React.FC = ():ReactElement => (
   <BrowserRouter>
     <Header />
     <Switch>
-      <Route component={HomePage} path='/home' />
+      <Route component={HomePage} path='/' exact />
       <Route component={StatisticsPage} path='/statistics' />
       <Route component={PreventionPage} path='/prevention' />
       <Route component={SymptomsPage} path='/symptoms' />

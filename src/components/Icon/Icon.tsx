@@ -44,6 +44,7 @@ const TypeToIconMap:ITypeToIconMap = {
   distancing: (props:IProps) => <DistancingIcon className={props.className} />,
 };
 
-const Icon:React.FC<IIcon> = ({ type, className, onClick }): ReactElement => (TypeToIconMap[type]({ className, onClick }));
+const Icon:React.FC<IIcon> = ({ type, className, onClick }): ReactElement => (
+  TypeToIconMap[type]({ className, onClick }));
 
 export default Icon;
