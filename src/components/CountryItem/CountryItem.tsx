@@ -1,11 +1,23 @@
 import React, { ReactElement } from 'react';
-import { ICountryStatistics } from '../../common/types/statisticsTypes';
 import './CountryItem.scss';
 
-const CountryItem:React.FC<ICountryStatistics> = (
-  { country, newConfirmed, totalConfirmed, newDeaths, totalDeaths },
+interface ICountryItem{
+  flag: string,
+  country: string;
+  newConfirmed:number;
+  totalConfirmed: number;
+  newDeaths:number;
+  totalDeaths:number;
+  totalRecovered:number;
+}
+
+const CountryItem:React.FC<ICountryItem> = (
+  { flag, country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, totalRecovered },
 ):ReactElement => (
   <li className='country-item'>
+    <div className='country-item-flag'>
+      <img src={flag} alt='flag' className='flag-icon' />
+    </div>
     <span className='name-country'>{country}</span>
     <div className='country-item-statistics'>
       <span>Confirmed</span>
@@ -14,7 +26,7 @@ const CountryItem:React.FC<ICountryStatistics> = (
     </div>
     <div className='country-item-statistics'>
       <span className='green-text'>Recovered</span>
-      <span className='big-number'>{totalConfirmed - totalDeaths}</span>
+      <span className='big-number'>{totalRecovered}</span>
     </div>
     <div className='country-item-statistics'>
       <span className='red-text'>Deaths</span>

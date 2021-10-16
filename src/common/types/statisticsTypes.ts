@@ -1,21 +1,3 @@
-export interface ICountryStatistics {
-  id?:string;
-  country: string;
-  countryCode?:string;
-  newConfirmed:number;
-  totalConfirmed: number;
-  newDeaths:number;
-  totalDeaths:number;
-}
-
-export interface ICountryStatisticsState {
-  сountries: ICountryStatistics[],
-  page: number,
-  limit: number,
-  loading: boolean,
-  error: null | string;
-}
-
 export interface IConverterGlobal {
   NewConfirmed:number,
   TotalConfirmed:number,
@@ -24,24 +6,50 @@ export interface IConverterGlobal {
   Date:string,
 }
 
-// export interface IconverterCountries {
-//   ID:string;
-//   Country: string;
-//   CountryCode:string;
-//   Slug:string;
-//   NewConfirmed:number;
-//   TotalConfirmed: number;
-//   NewDeaths:number;
-//   TotalDeaths:number;
-//   NewRecovered:number;
-//   TotalRecovered:number;
-//   Date:string;
-//   Premium:{},
-// }
+export interface ICountryStatisticsKeys {
+  [key: string]: string | number | undefined;
+}
+
+export interface ICountryStatistics extends ICountryStatisticsKeys{
+  id?:string;
+  country: string;
+  countryCode?:string;
+  newConfirmed:number;
+  totalConfirmed: number;
+  newDeaths:number;
+  totalDeaths:number;
+  totalRecovered:number;
+  flag:string;
+}
+
+export interface IGlobalStatistics {
+  newConfirmed: number,
+  totalConfirmed: number,
+  newDeaths: number,
+  totalDeaths: number,
+  totalRecovered:number;
+  date: string,
+}
+
+export interface ICountryStatisticsState {
+  countries: ICountryStatistics[],
+  global: IGlobalStatistics,
+  page: number,
+  limit: number,
+  loading: boolean,
+  error: null | string;
+}
+
+export interface IFlags{
+  country:string,
+  CountryCode:string,
+  flagBase64:string,
+}
 
 export enum StatisticsActionTypes {
   FETCH_STATISTICS = 'FETCH_STATISTICS',
   FETCH_STATISTICS_SUCCESS = 'FETCH_STATISTICS_SUCCESS',
+  FETCH_STATISTICS_GLOBAL_SUCCESS = 'FETCH_STATISTICS_GLOBAL_SUCCESS',
   FETCH_STATISTICS_ERROR= 'FETCH_STATISTICS_ERROR',
   SET_LIST_PAGE = 'SET_LIST_PAGE',
 }
@@ -52,7 +60,12 @@ interface IFetchStatisticsAction {
 
 interface IFetchStatisticsSuccessAction {
   type: StatisticsActionTypes.FETCH_STATISTICS_SUCCESS,
-  payload: any[],
+  payload: ICountryStatistics[],
+}
+
+interface IFetchGlobalStatisticsSuccessAction {
+  type: StatisticsActionTypes.FETCH_STATISTICS_GLOBAL_SUCCESS,
+  payload: IGlobalStatistics,
 }
 
 interface IFetchStatisticsErrorAction {
@@ -70,3 +83,4 @@ IFetchStatisticsAction
 | IFetchStatisticsSuccessAction
 | IFetchStatisticsErrorAction
 | ISetListPage
+| IFetchGlobalStatisticsSuccessAction

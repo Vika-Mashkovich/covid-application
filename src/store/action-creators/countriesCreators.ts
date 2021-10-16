@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import axios from 'axios';
 import { StatisticsAction, StatisticsActionTypes } from '../../common/types/statisticsTypes';
 import { converterCountries } from '../../api/StatisticsCovidApi/converterCountries';
+import { converterGlobal } from '../../api/StatisticsCovidApi/converterGlobal';
 
 export const fetchStatistics = () => async (dispatch: Dispatch<StatisticsAction>) => {
   try {
@@ -10,6 +11,9 @@ export const fetchStatistics = () => async (dispatch: Dispatch<StatisticsAction>
 
     dispatch(
       { type: StatisticsActionTypes.FETCH_STATISTICS_SUCCESS, payload: converterCountries(response.data.Countries) },
+    );
+    dispatch(
+      { type: StatisticsActionTypes.FETCH_STATISTICS_GLOBAL_SUCCESS, payload: converterGlobal(response.data.Global) },
     );
   } catch (e) {
     dispatch({
@@ -21,3 +25,6 @@ export const fetchStatistics = () => async (dispatch: Dispatch<StatisticsAction>
 
 export const setListPage = (page: number): StatisticsAction => (
   { type: StatisticsActionTypes.SET_LIST_PAGE, payload: page });
+export function fetchGeoData() {
+  throw new Error('Function not implemented.');
+}

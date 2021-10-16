@@ -1,7 +1,7 @@
 .country-item{
   border-bottom: 2px solid #EBEBEB;  
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 0.7fr 1.5fr 1fr 1fr 1fr;
   column-gap: 20px;
   text-align: start;
   padding: 10px 0;
@@ -17,30 +17,13 @@
   margin-right: 20px;
   display: flex;
   align-items: center; 
-  justify-content: center;
+  justify-content: start;
+  text-align: start;
 }
 
 .country-item-statistics{
   display: flex;
   flex-direction: column;  
-}
-
-.green-text{
-  color: #44B564;
-}
-
-.red-text{
-  color: #F06868;
-}
-
-.big-number{
-  font-family: 'Mulish';
-  font-size: 20px;
-}
-
-.small-number{
-  font-family: 'Mulish';
-  font-size: 18px;
 }
 
 .country-item-statistics span{
@@ -49,4 +32,15 @@
 
 .country-item-statistics span:last-child{
   margin-bottom: 0;  
+}
+
+.country-item-flag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag-icon{
+  width: 60px;         
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);     
 }

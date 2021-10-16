@@ -1,0 +1,62 @@
+.global-block{
+  text-align: start;
+
+  .global-date{
+    font-size: 30px;
+    font-family: 'Padauk';  
+  }
+  
+  .global-statistics{
+    box-shadow:  0px 0px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 40px;
+    padding: 20px;
+    margin-bottom: 70px;    
+  
+    .global-icon-block{
+      display: flex;
+      align-items: center;    
+        
+      .globe-icon{
+        margin-right: 20px;
+        max-height: 95px;
+      }
+    
+      span{
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+  
+    &-block{
+      display: flex;     
+      text-align: start;
+        
+      .global-statistics-icon{
+        margin-right: 10px;
+        max-height: 70px;
+        align-items: center;
+      }
+  
+      &-data{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+  
+        & span:last-child{
+          margin-bottom: 0;
+        }
+        span{
+          margin-bottom: 10px;
+        }             
+      }
+    }
+  }
+}
+
+
+
+

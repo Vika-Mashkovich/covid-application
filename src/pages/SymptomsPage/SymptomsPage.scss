@@ -1,6 +1,6 @@
 .wrapper-symptoms .container{
-text-align: center;
-position: relative;
+  text-align: center;
+  position: relative;
 }
 
 .wrapper-symptoms .text{
@@ -15,18 +15,18 @@ position: relative;
 }
 
 .symptoms{
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-column-gap: 50px;
-margin-bottom: 50px;
-position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 50px;
+  margin-bottom: 50px;
+  position: relative;
 }
 
 .symptoms-block{
-padding: 25px 40px;
-box-shadow: 0px 0px 20px rgba(100, 207, 131, 0.3);
-border-radius: 20px;
-background-color: #fff;
+  padding: 25px 40px;
+  box-shadow: 0px 0px 20px rgba(100, 207, 131, 0.3);
+  border-radius: 20px;
+  background-color: #fff;
 
 }
 
@@ -46,12 +46,12 @@ background-color: #fff;
 }
 
 .attention-block{
-display: flex;
-justify-content: center;
-margin-bottom: 20px;
-background-color: rgba(69, 90, 100, 0.1);
-border-radius: 20px;
-padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: rgba(69, 90, 100, 0.1);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .text-attention{
@@ -89,14 +89,15 @@ padding: 20px;
   position: absolute;
   top: -50%;
   left: 13%;
+  opacity: 50%;
 }
 
 .corona-gray-big{
-max-width: 300px;
-z-index: -1;
-position: absolute;
-bottom: -55%;
-right: 10%;
+  max-width: 300px;
+  z-index: -1;
+  position: absolute;
+  bottom: -55%;
+  right: 10%;
 }
 
 .corona-green{

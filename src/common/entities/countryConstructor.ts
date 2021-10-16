@@ -8,6 +8,8 @@ export class Country {
   totalConfirmed: number;
   newDeaths:number;
   totalDeaths:number;
+  totalRecovered:number;
+  flag:string;
 
   constructor(props: ICountryStatistics) {
     this.id = props.id;
@@ -17,5 +19,7 @@ export class Country {
     this.totalConfirmed = props.totalConfirmed;
     this.newDeaths = props.newDeaths;
     this.totalDeaths = props.totalDeaths;
+    this.totalRecovered = props.totalRecovered;
+    this.flag = props.flag;
   }
 }

@@ -1,7 +1,15 @@
 import { StatisticsAction, StatisticsActionTypes, ICountryStatisticsState } from '../../common/types/statisticsTypes';
 
 const initialState: ICountryStatisticsState = {
-  сountries: [],
+  countries: [],
+  global: {
+    newConfirmed: 0,
+    totalConfirmed: 0,
+    newDeaths: 0,
+    totalDeaths: 0,
+    totalRecovered: 0,
+    date: '',
+  },
   page: 1,
   limit: 20,
   loading: false,
@@ -13,7 +21,9 @@ export const countriesReducer = (state = initialState, action: StatisticsAction)
     case StatisticsActionTypes.FETCH_STATISTICS:
       return { ...state, loading: true };
     case StatisticsActionTypes.FETCH_STATISTICS_SUCCESS:
-      return { ...state, сountries: action.payload, loading: false };
+      return { ...state, countries: action.payload, loading: false };
+    case StatisticsActionTypes.FETCH_STATISTICS_GLOBAL_SUCCESS:
+      return { ...state, global: action.payload, loading: false };
     case StatisticsActionTypes.FETCH_STATISTICS_ERROR:
       return { ...state, loading: false, error: action.payload };
     case StatisticsActionTypes.SET_LIST_PAGE:

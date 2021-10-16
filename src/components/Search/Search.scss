@@ -1,0 +1,52 @@
+.countrySearch{
+  display: inline-block;
+  min-width: 400px;
+  text-align: start;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  margin-bottom: 20px;
+  background-color: #fff;
+
+  .search{
+    padding: 10px;
+    min-width: 300px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    margin: 0 20px;
+  }
+
+  .search-icon{
+    max-height: 30px;
+    margin-right: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+
+  .search-icon:hover{
+    cursor: pointer;
+  }
+}
+
+.search-results-block{
+  margin-bottom: 50px;
+  text-align: start;
+
+  .search-results{
+    font-size: 30px;
+    margin-right: 20px;
+  }
+
+  .btn-close{
+    max-height: 17px;
+  }
+  
+  .btn-close:hover{
+    cursor: pointer;
+  }
+}
