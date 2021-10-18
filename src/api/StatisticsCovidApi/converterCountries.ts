@@ -1,16 +1,17 @@
 import { Country } from '../../common/entities/countryConstructor';
-import { ICountryStatistics, IFlags } from '../../common/types/statisticsTypes';
-import Flags from '../../common/json/flags.json';
+// import { IFlag } from '../../common/types/flagsTypes';
+import { ICountryStatistics } from '../../common/types/statisticsTypes';
+// import Flags from '../MOCK/flagsData/flags.json';
 
 export const converterCountries = (countries: any[]):ICountryStatistics[] => (
   countries.reduce((acc, country) => {
-    const flags = Flags as Array<IFlags>;
-    const flagCountry:IFlags | undefined = flags.find((item:IFlags) => item.CountryCode === country.CountryCode);
-    let flagIcon:string = '';
+    // const flags = Flags as Array<IFlag>;
+    // const flagCountry:IFlag | undefined = flags.find((item:IFlag) => item.countryCode === country.CountryCode);
+    // let flagIcon:string = '';
 
-    if (flagCountry) {
-      flagIcon = flagCountry.flagBase64;
-    }
+    // if (flagCountry) {
+    //   flagIcon = flagCountry.flag;
+    // }
 
     acc.push(new Country({
       id: country.ID,
@@ -21,7 +22,7 @@ export const converterCountries = (countries: any[]):ICountryStatistics[] => (
       newDeaths: country.NewDeaths,
       totalDeaths: country.TotalDeaths,
       totalRecovered: country.TotalConfirmed - country.TotalDeaths,
-      flag: flagIcon,
+      flag: 'flagIcon',
     }));
 
     return acc;

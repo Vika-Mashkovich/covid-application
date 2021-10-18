@@ -9,24 +9,22 @@ const Header:React.FC = ():ReactElement => {
   return (
     <header className='wrapper-header'>
       <div className='container'>
-        <div className='logo-block'>
-          <Icon type='logo' className='logo' onClick={async () => history.push('/')} />
-          <span
-            role='link'
-            tabIndex={0}
-            className='logo-text'
-            onClick={async () => history.push('/')}
-            onKeyPress={async () => history.push('/')}
-          >
-            COVID-19
-          </span>
+        <div
+          className='logo-block'
+          onClick={() => history.push('/')}
+          onKeyPress={() => history.push('/')}
+          role='link'
+          tabIndex={0}
+        >
+          <Icon type='logo' className='logo' />
+          <span className='logo-text'>COVID-19</span>
         </div>
         <nav className='navigation'>
           <ul className='menu'>
-            <li className='menu-item'><NavLink exact to='/'>HOME</NavLink></li>
-            <li className='menu-item'><NavLink to='/statistics'>STATISTICS</NavLink></li>
-            <li className='menu-item'><NavLink to='/prevention'>PREVENTION</NavLink></li>
-            <li className='menu-item'><NavLink to='/symptoms'>SYMPTOMS</NavLink></li>
+            <li className='menu-item'><NavLink exact to='/'><span className='menu-item-span'>HOME</span></NavLink></li>
+            <li className='menu-item'><NavLink to='/statistics'><span className='menu-item-span'>STATISTICS</span></NavLink></li>
+            <li className='menu-item'><NavLink to='/prevention'><span className='menu-item-span'>PREVENTION</span></NavLink></li>
+            <li className='menu-item'><NavLink to='/symptoms'><span className='menu-item-span'>SYMPTOMS</span></NavLink></li>
           </ul>
         </nav>
       </div>

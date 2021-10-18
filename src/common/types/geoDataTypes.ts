@@ -1,6 +1,6 @@
 import { LatLngExpression } from 'leaflet';
 
-export interface IConverterGeoData{
+export interface IGeoData{
   geoPoint:LatLngExpression,
   code:string,
   }
@@ -8,7 +8,7 @@ export interface IConverterGeoData{
 export interface IGeoDataState {
   loading: boolean,
   error: null | string,
-  geoData: IConverterGeoData[],
+  geoData: IGeoData[],
 }
 
 export enum GeoDataActionTypes {
@@ -23,7 +23,7 @@ interface IFetchGeoDataAction {
 
 interface IFetchGeoDataSuccessAction {
   type: GeoDataActionTypes.FETCH_GEO_DATA_SUCCESS,
-  payload: IConverterGeoData[],
+  payload: IGeoData[],
 }
 
 interface IFetchGeoDataErrorAction {

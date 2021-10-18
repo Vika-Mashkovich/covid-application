@@ -6,18 +6,18 @@ import Icon from '../Icon/Icon';
 import './Search.scss';
 
 const Search:React.FC = ():ReactElement => {
-  const { countries } = useTypedSelector(
-    (state) => state.countriesData,
-  );
+  const { countries } = useTypedSelector((state) => state.countriesData);
   const [valueSearch, setValueSearch] = useState<string>('');
   const [countrySearch, setCountrySearch] = useState<Array<ICountryStatistics>>([]);
 
   const handleOnSearch = () => {
-    if (valueSearch !== '') {
-      const search = countries.filter((item) => (item.country.toLowerCase().includes(valueSearch.toLowerCase())));
-
-      setCountrySearch(search);
+    if (valueSearch === '') {
+      return;
     }
+
+    const search = countries.filter((item) => (item.country.toLowerCase().includes(valueSearch.toLowerCase())));
+
+    setCountrySearch(search);
   };
 
   const handleKeyPress = (e:React.KeyboardEvent<HTMLElement>) => {
@@ -34,32 +34,26 @@ const Search:React.FC = ():ReactElement => {
   };
 
   return (
-    <div>
+    <section className='country-search-section'>
       {countrySearch.length !== 0 && (
-      <div className='search-results-block'>
-        <span className='search-results'>Search results</span>
-        <Icon type='close' className='btn-close' onClick={async () => handleDeletion()} />
-        <ul className='countries-list countries-list-search'>
-          {countrySearch.map((country:ICountryStatistics) => (
-            <CountryItem
-              key={country.id}
-              flag={country.flag}
-              country={country.country}
-              newConfirmed={country.newConfirmed}
-              totalConfirmed={country.totalConfirmed}
-              newDeaths={country.newDeaths}
-              totalDeaths={country.totalDeaths}
-              totalRecovered={country.totalRecovered}
-            />
-          ))}
-        </ul>
-      </div>
+        <div className='search-results-block'>
+          <span className='search-results-text'>Search results</span>
+          <Icon type='close' className='btn-close' role='button' onClick={() => handleDeletion()} />
+          <ul className='search-countries-list'>
+            {countrySearch.map((country:ICountryStatistics) => (
+              <CountryItem
+                key={country.id}
+                countryOptions={country}
+              />
+            ))}
+          </ul>
+        </div>
       ) }
-      <div className='countrySearch'>
-        <input type='text' value={valueSearch} className='search' placeholder='Country search' onChange={(e) => setValueSearch(e.target.value)} onKeyPress={(e) => handleKeyPress(e)} />
-        <Icon type='search' className='search-icon' onClick={async () => handleOnSearch()} />
+      <div className='search-input-block'>
+        <input type='text' value={valueSearch} className='search-input' placeholder='Country search' onChange={(e) => setValueSearch(e.target.value)} onKeyPress={(e) => handleKeyPress(e)} />
+        <Icon type='search' className='search-icon' role='button' onClick={() => handleOnSearch()} />
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -6,6 +6,21 @@ export interface IConverterGlobal {
   Date:string,
 }
 
+export interface IConverterCountries {
+  ID:string;
+  Country: string;
+  CountryCode:string;
+  Slug:string;
+  NewConfirmed:number;
+  TotalConfirmed: number;
+  NewDeaths:number;
+  TotalDeaths:number;
+  NewRecovered:number;
+  TotalRecovered:number;
+  Date:string;
+  Premium:object,
+}
+
 export interface ICountryStatisticsKeys {
   [key: string]: string | number | undefined;
 }
@@ -38,12 +53,6 @@ export interface ICountryStatisticsState {
   limit: number,
   loading: boolean,
   error: null | string;
-}
-
-export interface IFlags{
-  country:string,
-  CountryCode:string,
-  flagBase64:string,
 }
 
 export enum StatisticsActionTypes {

@@ -1,19 +1,19 @@
 .wrapper-nopage{
   flex: 1 1 auto;
-}
 
-.wrapper-nopage .container{  
-  display: flex;
-  flex-direction: column;  
-  align-items: center;
-  margin-top: 100px;
-}
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
 
-.nopage-text{
-  font-size: 30px;
-  margin-bottom: 20px;
-}
+    .nopage-text{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }    
 
-.nopage-btn{  
-  font-size: 18px;
+    .nopage-btn{
+      font-size: 18px;
+    }
+  }
 }

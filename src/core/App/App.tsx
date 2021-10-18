@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import './App.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import HomePage from '../../pages/HomePage/HomePage';
@@ -10,7 +10,7 @@ import SymptomsPage from '../../pages/SymptomsPage/SymptomsPage';
 import NoPage from '../../pages/NoPage/NoPage';
 
 const App :React.FC = ():ReactElement => (
-  <BrowserRouter>
+  <>
     <Header />
     <Switch>
       <Route component={HomePage} path='/' exact />
@@ -20,7 +20,7 @@ const App :React.FC = ():ReactElement => (
       <Route component={NoPage} path='*' />
     </Switch>
     <Footer />
-  </BrowserRouter>
+  </>
 );
 
 export default App;

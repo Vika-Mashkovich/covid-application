@@ -1,11 +1,11 @@
-.sorting-block{
-  text-align: start; 
+.sorting-section{
+  text-align: start;
 
   .select-form{
     display: inline-block;
     margin-bottom: 20px;
    
-    select{
+    .select{
       min-width: 400px;
       user-select: none;
       border: none;
@@ -20,12 +20,11 @@
       border-radius: 20px;
       font-size: 20px;
       padding: 10px 30px;
-      color: #455A64 ;      
-    }    
+      color: #455A64;
+    }
 
-    select:hover{
+    .select:hover{
       cursor: pointer;
     }
   }
 }
-

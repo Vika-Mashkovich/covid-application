@@ -20,7 +20,8 @@ import { ReactComponent as CloseIcon } from '../../assets/svg/close.svg';
 interface IIcon {
   type:string,
   className:string,
-  onClick?:()=>{},
+  role?:string,
+  onClick?:()=>void,
 }
 
 interface ITypeToIconMap {
@@ -29,11 +30,12 @@ interface ITypeToIconMap {
 
 interface IProps {
   className: string,
-  onClick?:()=>{},
+  role?: string,
+  onClick?:()=>void,
 }
 
 const TypeToIconMap:ITypeToIconMap = {
-  logo: (props:IProps) => <LogoIcon className={props.className} onClick={props.onClick} />,
+  logo: (props:IProps) => <LogoIcon className={props.className} role={props.role} onClick={props.onClick} />,
   facebook: (props:IProps) => <FacebookIcon className={props.className} />,
   twitter: (props:IProps) => <TwitterIcon className={props.className} />,
   instagram: (props:IProps) => <InstagramIcon className={props.className} />,
@@ -48,12 +50,12 @@ const TypeToIconMap:ITypeToIconMap = {
   distancing: (props:IProps) => <DistancingIcon className={props.className} />,
   coronaGrey: (props:IProps) => <CoronaGreyIcon className={props.className} />,
   coronaRed: (props:IProps) => <CoronaRedIcon className={props.className} />,
-  search: (props:IProps) => <SearchIcon className={props.className} onClick={props.onClick} />,
-  close: (props:IProps) => <CloseIcon className={props.className} onClick={props.onClick} />,
+  search: (props:IProps) => <SearchIcon className={props.className} role={props.role} onClick={props.onClick} />,
+  close: (props:IProps) => <CloseIcon className={props.className} role={props.role} onClick={props.onClick} />,
 
 };
 
-const Icon:React.FC<IIcon> = ({ type, className, onClick }): ReactElement => (
-  TypeToIconMap[type]({ className, onClick }));
+const Icon:React.FC<IIcon> = ({ type, className, role, onClick }): ReactElement => (
+  TypeToIconMap[type]({ className, role, onClick }));
 
 export default Icon;

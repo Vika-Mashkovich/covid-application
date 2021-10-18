@@ -94,16 +94,16 @@ const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement =
   const paginateCountries = countries.slice((page - 1) * limit, page * limit);
 
   return (
-    <div className='countries-list-block'>
+    <section className='countries-list-section'>
       <div className='paginate'>
         {pages.map((pageNumber) => (
           <div
+            key={pageNumber}
             className={pageNumber === page ? 'page page-active' : 'page'}
             role='button'
+            tabIndex={0}
             onClick={() => action.setListPage(pageNumber)}
             onKeyPress={() => action.setListPage(pageNumber)}
-            tabIndex={0}
-            key={pageNumber}
           >
             {pageNumber}
           </div>
@@ -114,17 +114,11 @@ const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement =
         {paginateCountries.map((country:ICountryStatistics) => (
           <CountryItem
             key={country.id}
-            flag={country.flag}
-            country={country.country}
-            newConfirmed={country.newConfirmed}
-            totalConfirmed={country.totalConfirmed}
-            newDeaths={country.newDeaths}
-            totalDeaths={country.totalDeaths}
-            totalRecovered={country.totalRecovered}
+            countryOptions={country}
           />
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

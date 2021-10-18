@@ -1,52 +1,47 @@
-.countries-list-block{
+.countries-list-section{
   position: relative;
-}
+  
+  .paginate{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
 
-.countries-list{
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  padding: 10px 30px;
-  margin-bottom: 50px;
-  background-color: #fff; 
-}
+    .page{
+      padding: 5px;
+      border: 1px solid #455A64;
+      border-radius: 10px;
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+      background-color: #fff;
+    }
 
-.countries-list-search{
-  box-shadow: 0px 0px 30px rgba(100, 207, 131, 0.2);
-}
+    .page:last-child{
+      margin-right: 0;
+    }
+      
+    .page:hover{
+      cursor: pointer;
+    }
+      
+    .page-active{
+      border: 2px solid #44B564;
+      background-color: rgba(#44B564, 0.1);
+    }
+  }
 
-.paginate{
-  display: flex;
-  justify-content: end; 
-  margin-bottom: 10px;
-}
+  .page-coronaGrayBig{
+    position: absolute;
+    z-index: -1;
+    top: -150px;
+    left: 28%;
+    opacity: 70%;
+  }
 
-.page{
-  padding: 5px;
-  border: 1px solid #455A64;
-  border-radius: 10px;
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  background-color: #fff;
-}
-
-.page:last-child{
-  margin-right: 0;
-}
-
-.page:hover{
-  cursor: pointer;
-}
-
-.page-active{
-  border: 2px solid #44B564;
-  background-color: rgba(#44B564, 0.1);
-}
-
-.page-coronaGrayBig{
-  position: absolute;
-  z-index: -1;
-  top: -150px; 
-  left: 28%;
-  opacity: 70%;
+  .countries-list{
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin-bottom: 50px;
+    background-color: #fff;
+  }
 }

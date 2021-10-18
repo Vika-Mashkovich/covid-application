@@ -4,7 +4,7 @@ import './Button.scss';
 interface IButton {
     className:string,
     children:React.ReactNode,
-    onClick:()=>{};
+    onClick:()=>void;
 }
 
 const Button:React.FC<IButton> = ({ className, children, onClick }): ReactElement => (

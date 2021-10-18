@@ -12,7 +12,7 @@ const SymptomsPage:React.FC = ():ReactElement => (
       </p>
       <Icon type='symptoms' className='symptoms-img' />
       <Icon type='coronaGreenBig' className='corona-green' />
-      <div className='symptoms'>
+      <section className='symptoms'>
         <Icon type='coronaGreenBig' className='corona-green-big' />
         <Icon type='coronaGrayBig' className='corona-gray-big' />
         <div className='symptoms-block'>
@@ -43,21 +43,21 @@ const SymptomsPage:React.FC = ():ReactElement => (
             <li><span>red or irritated eyes</span></li>
           </ul>
         </div>
-      </div>
-      <div className='attention-block'>
+      </section>
+      <section className='attention-block'>
         <Icon type='attention' className='attention-img' />
-        <p className='text-attention'>
+        <p className='attention-text'>
           Seek immediate medical attention if you have serious symptoms.
           Always call before visiting your doctor or health facility.
         </p>
-      </div>
-      <div className='info-block'>
+      </section>
+      <section className='info-block'>
         <p className='text-info'>People with mild symptoms who are otherwise healthy should manage their symptoms at home.</p>
         <p className='text-info'>
           On average it takes 5–6 days from when someone is infected with the virus for symptoms to show,
           however it can take up to 14 days.
         </p>
-      </div>
+      </section>
     </div>
   </main>
 );

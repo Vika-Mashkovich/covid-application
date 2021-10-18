@@ -2,15 +2,13 @@ import React, { ReactElement, useEffect } from 'react';
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import '../../../node_modules/leaflet/dist/leaflet.css';
-import './Map.scss';
-import ellipse from '../../assets/png/ellipse.png';
 import { useActions } from '../../store/hooks/useActions';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
+import ellipse from '../../assets/png/ellipse.png';
+import './Map.scss';
 
 const Map:React.FC = ():ReactElement => {
-  const { geoData } = useTypedSelector(
-    (state) => state.geoData,
-  );
+  const { geoData } = useTypedSelector((state) => state.geoData);
   const { countries } = useTypedSelector((state) => state.countriesData);
   const action = useActions();
 

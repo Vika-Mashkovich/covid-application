@@ -4,7 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: 'Padauk';
+  font-family: 'Padauk', 'Mulish', sans-serif;
   color: #455A64;
 }
 
@@ -34,7 +34,7 @@
   position: absolute;
   top: 60px;
   left: 50%;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
 }
 
 .text{
@@ -49,6 +49,10 @@
   color: #000;
 }
 
+.name-block{
+  font-size: 16px;
+}
+
 .green-text{
   color: #44B564;
 }
@@ -58,11 +62,19 @@
 }
 
 .big-number{
-  font-family: 'Mulish';
+  font-family: 'Mulish', 'Padauk', sans-serif;
   font-size: 20px;
 }
 
 .small-number{
-  font-family: 'Mulish';
+  font-family: 'Mulish', 'Padauk', sans-serif;
   font-size: 18px;
+}
+
+.visually-hidden{
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }

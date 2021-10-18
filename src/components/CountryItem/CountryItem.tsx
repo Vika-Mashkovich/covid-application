@@ -1,37 +1,30 @@
 import React, { ReactElement } from 'react';
+import { ICountryStatistics } from '../../common/types/statisticsTypes';
 import './CountryItem.scss';
 
 interface ICountryItem{
-  flag: string,
-  country: string;
-  newConfirmed:number;
-  totalConfirmed: number;
-  newDeaths:number;
-  totalDeaths:number;
-  totalRecovered:number;
+  countryOptions: ICountryStatistics;
 }
 
-const CountryItem:React.FC<ICountryItem> = (
-  { flag, country, newConfirmed, totalConfirmed, newDeaths, totalDeaths, totalRecovered },
-):ReactElement => (
+const CountryItem:React.FC<ICountryItem> = ({ countryOptions }):ReactElement => (
   <li className='country-item'>
     <div className='country-item-flag'>
-      <img src={flag} alt='flag' className='flag-icon' />
+      <img src={countryOptions.flag} alt='flag' className='flag-icon' />
     </div>
-    <span className='name-country'>{country}</span>
+    <span className='name-country'>{countryOptions.country}</span>
     <div className='country-item-statistics'>
       <span>Confirmed</span>
-      <span className='big-number'>{totalConfirmed}</span>
-      {newConfirmed !== 0 && <span className='small-number'>{`+ ${newConfirmed}`}</span>}
+      <span className='big-number'>{countryOptions.totalConfirmed}</span>
+      {countryOptions.newConfirmed !== 0 && <span className='small-number'>{`+ ${countryOptions.newConfirmed}`}</span>}
     </div>
     <div className='country-item-statistics'>
       <span className='green-text'>Recovered</span>
-      <span className='big-number'>{totalRecovered}</span>
+      <span className='big-number'>{countryOptions.totalRecovered}</span>
     </div>
     <div className='country-item-statistics'>
       <span className='red-text'>Deaths</span>
-      <span className='big-number'>{totalDeaths}</span>
-      {newDeaths !== 0 && <span className='small-number'>{`+ ${newDeaths}`}</span>}
+      <span className='big-number'>{countryOptions.totalDeaths}</span>
+      {countryOptions.newDeaths !== 0 && <span className='small-number'>{`+ ${countryOptions.newDeaths}`}</span>}
     </div>
   </li>
 );

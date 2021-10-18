@@ -1,11 +1,11 @@
 import { LatLngExpression } from 'leaflet';
-import { IConverterGeoData } from '../types/geoDataTypes';
+import { IGeoData } from '../types/geoDataTypes';
 
 export class CountryGeoData {
   geoPoint:LatLngExpression;
   code: string;
 
-  constructor(props: IConverterGeoData) {
+  constructor(props: IGeoData) {
     this.geoPoint = props.geoPoint;
     this.code = props.code;
   }
