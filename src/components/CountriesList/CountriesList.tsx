@@ -28,12 +28,8 @@ const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement =
     return <h1>An error has occurred, please try refreshing the page.</h1>;
   }
 
-  const pages = [];
   const numberOfPages:number = Math.ceil(countries.length / limit);
-
-  for (let i = 1; i <= numberOfPages; i += 1) {
-    pages.push(i);
-  }
+  const pages = Array.from(Array(numberOfPages).keys(), (num) => num + 1);
 
   const sortCountriesFromMoreToLess = (array:ICountryStatistics[], key:string) => array.sort((a, b) => {
     const A:number = Number(a[key]);

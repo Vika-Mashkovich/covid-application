@@ -5,6 +5,7 @@ import StatisticsApi from '../../api/StatisticsCovidApi/providerStatistics';
 export const fetchStatistics = () => async (dispatch: Dispatch<StatisticsAction>) => {
   try {
     dispatch({ type: StatisticsActionTypes.FETCH_STATISTICS });
+
     const responseCountries = await StatisticsApi.getCountriesStatistics();
     const responseGlobal = await StatisticsApi.getGlobalStatistics();
 
@@ -14,7 +15,7 @@ export const fetchStatistics = () => async (dispatch: Dispatch<StatisticsAction>
     dispatch(
       { type: StatisticsActionTypes.FETCH_STATISTICS_GLOBAL_SUCCESS, payload: responseGlobal },
     );
-  } catch (e) {
+  } catch (error) {
     dispatch({
       type: StatisticsActionTypes.FETCH_STATISTICS_ERROR,
       payload: 'There was an error loading',

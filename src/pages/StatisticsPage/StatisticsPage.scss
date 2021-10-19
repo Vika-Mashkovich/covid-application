@@ -8,5 +8,9 @@
     bottom: 600px;
     left: 0%;
     opacity: 70%;
+
+    @media (max-width: 1200px) {
+      max-width: 200px;
+    }
   }
 }

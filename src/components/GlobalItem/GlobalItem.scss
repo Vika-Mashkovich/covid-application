@@ -18,11 +18,16 @@
     &-block{
       display: flex;
       text-align: start;
+      justify-content: center;
         
       .global-statistics-icon{
         margin-right: 10px;
-        max-height: 70px;
+        max-width: 70px;
         align-items: center;
+
+        @media (max-width: 1050px){
+          max-width: 60px;
+        }
       }
   
       &-data{
@@ -44,15 +49,25 @@
     .global-icon-block{
       display: flex;
       align-items: center;
+      justify-content: center;
         
       .globe-icon{
         margin-right: 20px;
-        max-height: 95px;
+        max-width: 95px;
+
+        @media (max-width: 1050px){
+          margin-right: 10px;
+          max-width: 75px;
+        }
       }
     
       span{
         font-size: 30px;
         font-weight: 700;
+
+        @media (max-width: 1050px){
+          font-size: 25px;
+        }
       }
     }
   }

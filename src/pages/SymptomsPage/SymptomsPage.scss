@@ -29,6 +29,10 @@
       margin-bottom: 50px;
       position: relative;
 
+      @media (max-width: 1200px) {
+        column-gap: 30px;
+      }
+
       .corona-green-big{
         max-height: 300px;
         z-index: -1;
@@ -54,6 +58,12 @@
 
         .heading-h2{
           margin-bottom: 20px;
+        }
+
+        .heading-first{
+          @media (max-width: 1200px) {
+            padding: 0 50px;
+          }
         }
 
         .symptoms-list li{

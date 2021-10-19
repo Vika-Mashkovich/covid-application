@@ -16,7 +16,7 @@ const SymptomsPage:React.FC = ():ReactElement => (
         <Icon type='coronaGreenBig' className='corona-green-big' />
         <Icon type='coronaGrayBig' className='corona-gray-big' />
         <div className='symptoms-block'>
-          <h2 className='heading-h2'>Serious symptoms</h2>
+          <h2 className='heading-h2 heading-first'>Serious symptoms</h2>
           <ul className='symptoms-list'>
             <li><span>difficulty breathing or shortness of breath</span></li>
             <li><span>loss of speech or mobility, or confusion</span></li>

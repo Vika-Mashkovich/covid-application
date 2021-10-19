@@ -1,4 +1,4 @@
-import { IGeoData } from '../../common/types/geoDataTypes';
+import axios from 'axios';
 import { converterGeoData } from './converterGeoData';
 
 class GeoDataApi {
@@ -9,18 +9,10 @@ class GeoDataApi {
   }
 
   getGeoData() {
-    let result:IGeoData[] = [];
-
-    fetch(this.url)
-      .then((response) => response.json())
-      .then((responseData) => {
-        result = converterGeoData(responseData.Countries);
-
-        return result;
-      })
-      .catch((error) => (console.log('error', error)));
-
-    return result;
+    return axios
+      .get(this.url)
+      .then((response) => converterGeoData(response.data.records))
+      .catch(() => []);
   }
 }
 

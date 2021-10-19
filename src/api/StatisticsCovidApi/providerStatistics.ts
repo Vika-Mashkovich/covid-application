@@ -1,14 +1,6 @@
 import axios from 'axios';
-import { IConverterGlobal, IConverterCountries } from '../../common/types/statisticsTypes';
 import { converterCountries } from './converterCountries';
 import { converterGlobal } from './converterGlobal';
-
-interface IGet{
-  ID:string,
-  Message:string,
-  Global:IConverterGlobal,
-  Countries:IConverterCountries[]
-}
 
 class StatisticsApi {
   url:string;
@@ -19,16 +11,23 @@ class StatisticsApi {
 
   getCountriesStatistics() {
     return axios
-      .get<IGet>(this.url)
+      .get(this.url)
       .then((response) => converterCountries(response.data.Countries))
-      .catch((error) => (console.log('error', error)));
+      .catch(() => []);
   }
 
   getGlobalStatistics() {
     return axios
-      .get<IGet>(this.url)
+      .get(this.url)
       .then((response) => converterGlobal(response.data.Global))
-      .catch((error) => (console.log('error', error)));
+      .catch(() => ({
+        newConfirmed: 0,
+        totalConfirmed: 0,
+        newDeaths: 0,
+        totalDeaths: 0,
+        totalRecovered: 0,
+        date: '',
+      }));
   }
 }
 
