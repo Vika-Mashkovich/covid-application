@@ -1,13 +1,15 @@
 import React, { ReactElement } from 'react';
-import { ICountryStatistics } from '../../common/types/statisticsTypes';
+import { Country } from '../../common/entities/countryConstructor';
+import '../../core/colors.scss';
 import './CountryItem.scss';
 
-interface ICountryItem{
-  countryOptions: ICountryStatistics;
+interface ICountryItem {
+  countryOptions: Country,
+  className?: string,
 }
 
-const CountryItem:React.FC<ICountryItem> = ({ countryOptions }):ReactElement => (
-  <li className='country-item'>
+const CountryItem: React.FC<ICountryItem> = ({ countryOptions, className }): ReactElement => (
+  <li className={`country-item ${className}`}>
     <div className='country-item-flag'>
       <img src={countryOptions.flag} alt='flag' className='flag-icon' />
     </div>
@@ -28,5 +30,7 @@ const CountryItem:React.FC<ICountryItem> = ({ countryOptions }):ReactElement => 
     </div>
   </li>
 );
+
+CountryItem.defaultProps = { className: '' };
 
 export default CountryItem;

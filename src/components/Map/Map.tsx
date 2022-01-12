@@ -5,9 +5,10 @@ import '../../../node_modules/leaflet/dist/leaflet.css';
 import { useActions } from '../../store/hooks/useActions';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
 import ellipse from '../../assets/png/ellipse.png';
+import '../../core/colors.scss';
 import './Map.scss';
 
-const Map:React.FC = ():ReactElement => {
+const Map: React.FC = (): ReactElement => {
   const { geoData } = useTypedSelector((state) => state.geoData);
   const { countries } = useTypedSelector((state) => state.countriesData);
   const action = useActions();
@@ -48,7 +49,7 @@ const Map:React.FC = ():ReactElement => {
   });
 
   return (
-    <MapContainer className='map' center={[51.505, -0.09]} zoom={2} scrollWheelZoom={false}>
+    <MapContainer className='map' center={[35.505, -0.09]} zoom={2} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

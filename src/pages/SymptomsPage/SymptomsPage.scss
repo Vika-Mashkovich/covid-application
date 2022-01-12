@@ -24,13 +24,13 @@
 
     .symptoms{
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      column-gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
       margin-bottom: 50px;
       position: relative;
 
       @media (max-width: 1200px) {
-        column-gap: 30px;
+        gap: 30px;
       }
 
       .corona-green-big{
@@ -52,9 +52,9 @@
 
       &-block{
         padding: 25px 40px;
-        box-shadow: 0px 0px 20px rgba(100, 207, 131, 0.3);
+        box-shadow: 0px 0px 20px var(--color-green-shadow);
         border-radius: 20px;
-        background-color: #fff;
+        background-color: var(--color-white);
 
         .heading-h2{
           margin-bottom: 20px;
@@ -68,7 +68,7 @@
 
         .symptoms-list li{
           list-style-type: disc;
-          color: #44B564;
+          color: var(--color-green);
           text-align: start;
         }
 
@@ -83,7 +83,7 @@
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
-      background-color: rgba(69, 90, 100, 0.1);
+      background-color: rgba(var(--color-dark_gray_rgb), 0.1);
       border-radius: 20px;
       padding: 20px;
 
@@ -101,7 +101,7 @@
     }
 
     .info-block{
-      background-color: rgba(69, 90, 100, 0.1);
+      background-color: rgba(var(--color-dark_gray_rgb), 0.1);
       border-radius: 20px;
       padding: 20px;
       margin-bottom: 70px;

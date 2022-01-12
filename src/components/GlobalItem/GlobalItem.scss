@@ -4,52 +4,36 @@
   .global-date{
     font-size: 30px;
     font-family: 'Padauk', 'Mulish', sans-serif;
+
+    @media (max-width: 850px) {
+      font-size: 20px;
+    }
   }
   
   .global-statistics{
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 30px var(--color-black-shadow);
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 40px;
+    display: flex;
+    justify-content: space-around;
     padding: 20px;
     margin-bottom: 70px;
 
-    &-block{
+    @media (max-width: 850px) {
       display: flex;
-      text-align: start;
+      flex-wrap: wrap;
       justify-content: center;
-        
-      .global-statistics-icon{
-        margin-right: 10px;
-        max-width: 70px;
-        align-items: center;
-
-        @media (max-width: 1050px){
-          max-width: 60px;
-        }
-      }
-  
-      &-data{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-  
-        span{
-          margin-bottom: 10px;
-        }
-
-        span:last-child{
-          margin-bottom: 0;
-        }
-      }
     }
-  
+
     .global-icon-block{
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-right: 50px;
+
+      @media (max-width: 850px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
         
       .globe-icon{
         margin-right: 20px;
@@ -67,6 +51,43 @@
 
         @media (max-width: 1050px){
           font-size: 25px;
+        }
+      }
+    }
+
+    &-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      
+      .global-statistics-subblock{
+        display: flex;
+        text-align: start;
+        justify-content: center;
+                  
+        .global-statistics-icon{
+          margin-right: 10px;
+          max-width: 70px;
+          align-items: center;
+  
+          @media (max-width: 1050px){
+            max-width: 60px;
+          }
+        }
+    
+        &-data{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+    
+          span{
+            margin-bottom: 10px;
+          }
+  
+          span:last-child{
+            margin-bottom: 0;
+          }
         }
       }
     }

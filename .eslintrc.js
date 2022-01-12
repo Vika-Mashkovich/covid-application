@@ -21,6 +21,8 @@ module.exports = {
   ],
   settings: { 'import/resolver': { node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] } } },
   rules: {
+    'quote-props': ['error', 'consistent-as-needed'],
+    'import/no-cycle': [0],
     'jsx-a11y/control-has-associated-label': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',

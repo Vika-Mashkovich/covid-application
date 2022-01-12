@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
+import '../../core/colors.scss';
 import './Sorting.scss';
 
 interface ISortingProps {
-  onChange:(value:string)=>void,
+  onChange: (value: string) => void,
 }
 
-const Sorting:React.FC<ISortingProps> = ({ onChange }):ReactElement => (
+const Sorting: React.FC<ISortingProps> = ({ onChange }): ReactElement => (
   <section className='sorting-section'>
     <form className='select-form'>
       <select className='select' name='sorting' defaultValue='sorting' onChange={(e) => onChange(e.target.value)}>

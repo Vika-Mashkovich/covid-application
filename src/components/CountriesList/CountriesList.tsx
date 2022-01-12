@@ -1,16 +1,17 @@
 import React, { ReactElement, useEffect } from 'react';
-import './CountriesList.scss';
-import { ICountryStatistics } from '../../common/types/statisticsTypes';
 import CountryItem from '../CountryItem/CountryItem';
 import { useActions } from '../../store/hooks/useActions';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
 import Icon from '../Icon/Icon';
+import { Country } from '../../common/entities/countryConstructor';
+import '../../core/colors.scss';
+import './CountriesList.scss';
 
-interface ICountriesList{
+interface ICountriesList {
   sortingValue: string,
 }
 
-const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement => {
+const CountriesList: React.FC<ICountriesList> = ({ sortingValue }): ReactElement => {
   const { countries, page, limit, loading, error } = useTypedSelector(
     (state) => state.countriesData,
   );
@@ -28,26 +29,26 @@ const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement =
     return <h1>An error has occurred, please try refreshing the page.</h1>;
   }
 
-  const numberOfPages:number = Math.ceil(countries.length / limit);
+  const numberOfPages: number = Math.ceil(countries.length / limit);
   const pages = Array.from(Array(numberOfPages).keys(), (num) => num + 1);
 
-  const sortCountriesFromMoreToLess = (array:ICountryStatistics[], key:string) => array.sort((a, b) => {
-    const A:number = Number(a[key]);
-    const B:number = Number(b[key]);
+  const sortCountriesFromMoreToLess = (array: Array<Country>, key: string) => array.sort((a, b) => {
+    const A: number = Number(a[key as keyof Country]);
+    const B: number = Number(b[key as keyof Country]);
 
     return (B - A);
   });
 
-  const sortCountriesFromLessToMore = (array:ICountryStatistics[], key:string) => array.sort((a, b) => {
-    const A:number = Number(a[key]);
-    const B:number = Number(b[key]);
+  const sortCountriesFromLessToMore = (array: Array<Country>, key: string) => array.sort((a, b) => {
+    const A: number = Number(a[key as keyof Country]);
+    const B: number = Number(b[key as keyof Country]);
 
     return (A - B);
   });
 
-  const sortCountriesAlphabetically = (array:ICountryStatistics[], key:string) => array.sort((a, b) => {
-    const nameA:string = String(a[key]).replace(/\s/g, '').toLowerCase();
-    const nameB:string = String(b[key]).replace(/\s/g, '').toLowerCase();
+  const sortCountriesAlphabetically = (array: Array<Country>, key: string) => array.sort((a, b) => {
+    const nameA: string = String(a[key as keyof Country]).replace(/\s/g, '').toLowerCase();
+    const nameB: string = String(b[key as keyof Country]).replace(/\s/g, '').toLowerCase();
 
     if (nameA < nameB) { return -1; }
 
@@ -107,7 +108,7 @@ const CountriesList:React.FC<ICountriesList> = ({ sortingValue }):ReactElement =
       </div>
       <Icon type='coronaGrayBig' className='page-coronaGrayBig' />
       <ul className='countries-list'>
-        {paginateCountries.map((country:ICountryStatistics) => (
+        {paginateCountries.map((country: Country) => (
           <CountryItem
             key={country.id}
             countryOptions={country}

@@ -1,18 +1,16 @@
 import { Country } from '../../common/entities/countryConstructor';
-import { IConverterFlags } from '../../common/types/flagsTypes';
-import { ICountryStatistics } from '../../common/types/statisticsTypes';
-import Flags from '../MOCK/flagsData/flags.json';
+import { Flag } from '../../common/entities/flagConstructor';
 
-export const converterCountries = (countries: any[]):ICountryStatistics[] => (
+export const converterCountries = (countries: any[], flags: Flag[]): Array<Country> => (
   countries.reduce((acc, country) => {
-    const flags = Flags as Array<IConverterFlags>;
-    const flagCountry:IConverterFlags | undefined = flags.find((item:IConverterFlags) => (
-      item.CountryCode === country.CountryCode
+    const flagCountry = flags.find((item: Flag) => (
+      item.countryCode === country.CountryCode
     ));
-    let flagIcon:string = '';
+
+    let flagIcon: string = '';
 
     if (flagCountry) {
-      flagIcon = flagCountry.flagBase64;
+      flagIcon = flagCountry.flag;
     }
 
     acc.push(new Country({

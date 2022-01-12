@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import Icon from '../Icon/Icon';
+import '../../core/colors.scss';
 import './Header.scss';
 
-const Header:React.FC = ():ReactElement => {
+const Header: React.FC = (): ReactElement => {
   const history = useHistory();
 
   return (

@@ -4,9 +4,10 @@ import Icon from '../../components/Icon/Icon';
 import TabDistancing from '../../components/Tab/TabDistancing/TabDistancing';
 import TabHands from '../../components/Tab/TabHands/TabHands';
 import TabMask from '../../components/Tab/TabMask/TabMask';
+import '../../core/colors.scss';
 import './PreventionPage.scss';
 
-const PreventionPage:React.FC = ():ReactElement => {
+const PreventionPage: React.FC = (): ReactElement => {
   const [tabState, setTabState] = useState<string>('mask');
 
   return (

@@ -1,7 +1,7 @@
 import { Global } from '../../common/entities/globalConstructor';
-import { IConverterGlobal, IGlobalStatistics } from '../../common/types/statisticsTypes';
+import { IConverterGlobal } from '../../common/types/statisticsTypes';
 
-export const converterGlobal = (global: IConverterGlobal):IGlobalStatistics => (
+export const converterGlobal = (global: IConverterGlobal):Global => (
   new Global({
     newConfirmed: global.NewConfirmed,
     totalConfirmed: global.TotalConfirmed,

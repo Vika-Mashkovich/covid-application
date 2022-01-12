@@ -5,7 +5,7 @@
   text-decoration: none;
   list-style-type: none;
   font-family: 'Padauk', 'Mulish', sans-serif;
-  color: #455A64;
+  color: var(--color-dark_grey);
 }
 
 .container {
@@ -18,7 +18,7 @@
 .heading-h1{
   font-size: 40px;
   font-weight: 700;
-  color: #000;
+  color: var(--color-black);
   margin-top: 40px;
   margin-bottom: 60px;
   position: relative;
@@ -28,7 +28,7 @@
 .heading-h1::after{
   content: "";
   width: 115px;
-  border-top: 3px solid #64CF83;
+  border-top: 3px solid var(--color-green);
   display: inline-block;
   height: 0;
   position: absolute;
@@ -46,7 +46,7 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 45px;
-  color: #000;
+  color: var(--color-black);
 }
 
 .name-block{
@@ -54,11 +54,11 @@
 }
 
 .green-text{
-  color: #44B564;
+  color: var(--color-green);
 }
 
 .red-text{
-  color: #F06868;
+  color: var(--color-red);
 }
 
 .big-number{
@@ -92,5 +92,11 @@
     .heading-h1{
       font-size: 35px;
     }
+  }
+}
+
+@media (max-width: 770px){
+  .container{
+    max-width: 750px;
   }
 }

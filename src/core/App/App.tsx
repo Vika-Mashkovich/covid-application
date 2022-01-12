@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -8,8 +7,10 @@ import PreventionPage from '../../pages/PreventionPage/PreventionPage';
 import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage';
 import SymptomsPage from '../../pages/SymptomsPage/SymptomsPage';
 import NoPage from '../../pages/NoPage/NoPage';
+import '../colors.scss';
+import './App.scss';
 
-const App :React.FC = ():ReactElement => (
+const App: React.FC = (): ReactElement => (
   <>
     <Header />
     <Switch>

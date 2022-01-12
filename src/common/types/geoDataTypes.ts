@@ -1,4 +1,5 @@
 import { LatLngExpression } from 'leaflet';
+import { CountryGeoData } from '../entities/geoConstructor';
 
 export interface IGeoData{
   geoPoint:LatLngExpression,
@@ -8,7 +9,7 @@ export interface IGeoData{
 export interface IGeoDataState {
   loading: boolean,
   error: null | string,
-  geoData: IGeoData[],
+  geoData: CountryGeoData[],
 }
 
 export enum GeoDataActionTypes {
@@ -23,7 +24,7 @@ interface IFetchGeoDataAction {
 
 interface IFetchGeoDataSuccessAction {
   type: GeoDataActionTypes.FETCH_GEO_DATA_SUCCESS,
-  payload: IGeoData[],
+  payload: CountryGeoData[],
 }
 
 interface IFetchGeoDataErrorAction {

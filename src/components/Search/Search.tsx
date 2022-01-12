@@ -1,14 +1,15 @@
 import React, { ReactElement, useState } from 'react';
-import { ICountryStatistics } from '../../common/types/statisticsTypes';
+import { Country } from '../../common/entities/countryConstructor';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
 import CountryItem from '../CountryItem/CountryItem';
 import Icon from '../Icon/Icon';
+import '../../core/colors.scss';
 import './Search.scss';
 
-const Search:React.FC = ():ReactElement => {
+const Search: React.FC = (): ReactElement => {
   const { countries } = useTypedSelector((state) => state.countriesData);
   const [valueSearch, setValueSearch] = useState<string>('');
-  const [countrySearch, setCountrySearch] = useState<Array<ICountryStatistics>>([]);
+  const [countrySearch, setCountrySearch] = useState<Array<Country>>([]);
 
   const handleOnSearch = () => {
     if (valueSearch === '') {
@@ -20,7 +21,7 @@ const Search:React.FC = ():ReactElement => {
     setCountrySearch(search);
   };
 
-  const handleKeyPress = (e:React.KeyboardEvent<HTMLElement>) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
     const key = e.keyCode || e.which;
 
     if (key === 13) {
@@ -40,15 +41,16 @@ const Search:React.FC = ():ReactElement => {
           <span className='search-results-text'>Search results</span>
           <Icon type='close' className='btn-close' role='button' onClick={() => handleDeletion()} />
           <ul className='search-countries-list'>
-            {countrySearch.map((country:ICountryStatistics) => (
+            {countrySearch.map((country: Country) => (
               <CountryItem
                 key={country.id}
                 countryOptions={country}
+                className={countrySearch.length === 1 ? 'country-item-single' : ''}
               />
             ))}
           </ul>
         </div>
-      ) }
+      )}
       <div className='search-input-block'>
         <input type='text' value={valueSearch} className='search-input' placeholder='Country search' onChange={(e) => setValueSearch(e.target.value)} onKeyPress={(e) => handleKeyPress(e)} />
         <Icon type='search' className='search-icon' role='button' onClick={() => handleOnSearch()} />

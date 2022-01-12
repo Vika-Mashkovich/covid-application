@@ -1,15 +1,15 @@
 import { ICountryStatistics } from '../types/statisticsTypes';
 
 export class Country {
-  id?:string;
+  id?: string;
   country: string;
-  countryCode?:string;
-  newConfirmed:number;
+  countryCode?: string;
+  newConfirmed: number;
   totalConfirmed: number;
-  newDeaths:number;
-  totalDeaths:number;
-  totalRecovered:number;
-  flag:string;
+  newDeaths: number;
+  totalDeaths: number;
+  totalRecovered: number;
+  flag: string;
 
   constructor(props: ICountryStatistics) {
     this.id = props.id;

@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
 import Icon from '../../components/Icon/Icon';
+import '../../core/colors.scss';
 import './SymptomsPage.scss';
 
-const SymptomsPage:React.FC = ():ReactElement => (
+const SymptomsPage: React.FC = (): ReactElement => (
   <main className='wrapper-symptoms'>
     <div className='container'>
       <h1 className='heading-h1'>Symptoms</h1>

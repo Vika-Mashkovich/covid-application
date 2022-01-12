@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { GEO_DATA_API_URL } from '../constants/urls';
 import { converterGeoData } from './converterGeoData';
 
 class GeoDataApi {
@@ -16,4 +17,4 @@ class GeoDataApi {
   }
 }
 
-export default new GeoDataApi('https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q=&rows=250');
+export default new GeoDataApi(GEO_DATA_API_URL);

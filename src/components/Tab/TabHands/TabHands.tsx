@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
+import '../../../core/colors.scss';
 import './TabHands.scss';
 
-const TabHands:React.FC = ():ReactElement => (
+const TabHands: React.FC = (): ReactElement => (
   <>
     <p className='text'>
       Practicing good hygiene is an important habit that helps prevent the spread of COVID-19.

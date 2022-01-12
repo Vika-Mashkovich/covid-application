@@ -1,19 +1,26 @@
 import axios from 'axios';
+import { Country } from '../../common/entities/countryConstructor';
+import { STATISTICS_API_URL } from '../constants/urls';
+import { getFlags } from '../FlagsApi/providerFlags';
 import { converterCountries } from './converterCountries';
 import { converterGlobal } from './converterGlobal';
 
 class StatisticsApi {
-  url:string;
+  url: string;
 
-  constructor(url:string) {
+  constructor(url: string) {
     this.url = url;
   }
 
   getCountriesStatistics() {
     return axios
       .get(this.url)
-      .then((response) => converterCountries(response.data.Countries))
-      .catch(() => []);
+      .then(async (response) => {
+        const flags = await getFlags();
+
+        return converterCountries(response.data.Countries, flags);
+      })
+      .catch(() => [] as Country[]);
   }
 
   getGlobalStatistics() {
@@ -31,4 +38,4 @@ class StatisticsApi {
   }
 }
 
-export default new StatisticsApi('https://api.covid19api.com/summary');
+export default new StatisticsApi(STATISTICS_API_URL);

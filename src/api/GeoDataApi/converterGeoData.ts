@@ -1,7 +1,6 @@
 import { CountryGeoData } from '../../common/entities/geoConstructor';
-import { IGeoData } from '../../common/types/geoDataTypes';
 
-export const converterGeoData = (geoData: any[]):IGeoData[] => (
+export const converterGeoData = (geoData: any[]):CountryGeoData[] => (
   geoData.reduce((acc, geoDataItem) => {
     if (geoDataItem.fields.geo_point_2d) {
       acc.push(new CountryGeoData({
